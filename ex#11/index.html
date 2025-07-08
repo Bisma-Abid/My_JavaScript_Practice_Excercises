@@ -14,7 +14,7 @@
       color: aliceblue;
       font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       padding: 30px;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: 400;
       cursor: pointer;
       border: none;
@@ -53,9 +53,30 @@
      console.log(`Cart Quantity is : ${cartQuantity}`);
    ">+3</button>
    <button onclick="
+     cartQuantity += 4;
+     console.log(`Cart Quantity is : ${cartQuantity}`);
+   ">+4</button>
+   <button onclick="
+     cartQuantity += 5;
+     console.log(`Cart Quantity is : ${cartQuantity}`);
+   ">+5</button>
+   <button onclick="
      cartQuantity = 0;
      console.log(`Cart Quantity is : ${cartQuantity}`);
    ">Reset Cart</button>
+   <button onclick="
+     cartQuantity --;
+     console.log(`Cart Quantity is : ${cartQuantity}`);
+   ">Remove from Cart</button>
+
+     <button onclick="
+     cartQuantity -= 2;
+     console.log(`Cart Quantity is : ${cartQuantity}`);
+   ">-2</button>
+     <button onclick="
+     cartQuantity -= 3;
+     console.log(`Cart Quantity is : ${cartQuantity}`);
+   ">-3</button>
 
    <script>
     let cartQuantity = 0;

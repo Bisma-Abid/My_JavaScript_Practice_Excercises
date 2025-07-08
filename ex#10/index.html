@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sale Website</title>
+  <style>
+
+body{
+  text-align: center;
+  align-items: center;
+  background-color: rgb(181, 188, 194);
+}
+
+.yellow{
+  background-color: yellow;
+  border-radius: 40px;
+  border: 4px solid yellow;
+  color: aliceblue;
+  font-size: 1.8rem;
+  padding: 20px;
+  font-weight: 700;
+}
+.orange{
+  background-color: orange;
+  border-radius: 40px;
+  border: 4px solid orange;
+  color: aliceblue;
+  font-size: 1.8rem;
+  padding: 20px;
+  font-weight: 700;
+}
+
+  </style>
+</head>
+<body>
+   <h1>Adults Plain T-shirts</h1><br>
+   <p>Price : $7.99</p><br>
+   <button onclick="Added()" class="yellow">Add to Cart</button>
+   <button onclick="Loading()" class="orange">Buy Now</button>
+
+   <script>
+
+    function Added(){
+      alert("Added!");
+    }
+     
+    function Loading(){
+      console.log("Loading.......");
+      alert("Purchased");
+    }
+   </script>
+
+</body>
+</html>

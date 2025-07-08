@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart Quantity</title>
+  <style>
+    body{
+      text-align: center;
+      font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    button {
+      background-color: brown;
+      color: aliceblue;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 30px;
+      font-size: 1.5rem;
+      font-weight: 400;
+      cursor: pointer;
+      border: none;
+    }
+    button:hover{
+      background-color: rgb(148, 32, 32);
+      color: rgb(190, 196, 201);
+    }
+    h1{
+      color: cadetblue;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+   <h1>Cart Quantity</h1>
+   <button onclick="
+     console.log(`Cart Quantity is : ${cartQuantity}`);
+   ">Show Quantity</button>
+    
+   <button onclick="
+     cartQuantity = cartQuantity + 1;
+     // cartQuantity++;   work same as above line
+     console.log(`Cart Quantity is : ${cartQuantity}`);
+   "
+   >Add to Cart</button>
+   <button onclick="
+     cartQuantity = cartQuantity + 2;
+     // cartQuantity += 2;  work same as above line
+     
+     console.log(`Cart Quantity is : ${cartQuantity}`);
+   "
+   >+2</button>
+   <button onclick="
+     cartQuantity = cartQuantity + 3;
+     console.log(`Cart Quantity is : ${cartQuantity}`);
+   ">+3</button>
+   <button onclick="
+     cartQuantity = 0;
+     console.log(`Cart Quantity is : ${cartQuantity}`);
+   ">Reset Cart</button>
+
+   <script>
+    let cartQuantity = 0;
+  </script>
+
+</body>
+</html>

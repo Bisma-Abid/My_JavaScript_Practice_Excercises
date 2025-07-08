@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+
+
+body{
+ text-align: center;
+ background-color: rgb(226, 12, 219);
+ font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  background: linear-gradient(to right, #dca3f0, #f0e6f0);  /* Beautiful gradient */
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 900;
+  padding: 5px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);  /* Soft shadow */
+  font-family:cursive;  /* Stylish Google Font */
+  font-size: 34px;
+  color: #d205d6;
+
+  letter-spacing: 1px;
+  transition: all 0.4s ease-in-out;
+}
+
+/* Hover effect */
+h1:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #ffecd2, #c7c0f7);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #ffecd2, #fc9fdf);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+.clearMe:hover {
+  transform: scale(1.05);
+  border: none;
+  background: linear-gradient(to right, #4c2d03, #190701);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+
+.myCalculator{
+ border: 3px solid rgb(223, 221, 221);
+ border-radius: 30px;
+}
+
+button{
+  font-size: 2rem;
+  font-weight: 900;
+  border: 3px solid rgb(213, 229, 242);
+  background-color: rgb(213, 229, 242);
+  color:rgb(11, 65, 111);
+  padding:20px;
+  border-radius: 20px;
+}
+
+.clearMe{
+ background-color: rgb(162, 26, 126);
+ color: rgba(252, 240, 250, 0.867);
+ font-size: 1.5rem;
+  font-weight: 900;
+  border: 3px solid rgb(113, 29, 106);
+  padding:10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 5px;
+
+}

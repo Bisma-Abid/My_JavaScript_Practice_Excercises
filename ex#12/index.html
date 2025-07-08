@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background-color: black;
+      text-align: center;
+    }
+    h1{
+      font-size: 9rem;
+      color: aliceblue;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-weight: 900;
+      
+   }
+   h1:hover{
+     background-color: rgba(140, 136, 136,0.2);
+     color:rgb(223, 223, 224)
+   }
+  </style>
+</head>
+<body>
+  <h1>Check Console Please !</h1>
+  <h1>>>>>></h1>
+  <script>
+    const coffee = 5;
+    const bagel = 3;
+    const soup = 9;
+   // total cost....
+    let total = coffee + bagel * 2 + soup;
+    let cost = `${total}`;
+    console.log(`Your Total Bill is : $${cost}`);
+
+    const tax = 0.1;
+    let Tax = total * tax;
+    console.log(`Your tax will be : $${Tax}`);
+
+   // cost with tax
+
+    let totalCost = total + Tax ;
+    console.log(`your Total Bill with tax will be : $${totalCost}`);
+
+
+  </script>
+</body>
+</html>

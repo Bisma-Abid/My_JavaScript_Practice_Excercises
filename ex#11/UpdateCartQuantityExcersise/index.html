@@ -14,12 +14,7 @@
 
    ">Show the Cart</button>
        <button onclick="
-        if(cartQuantity < 10){
-          cartQuantity ++;
-       document.getElementById('add').innerHTML = ` Cart Quantity : ${cartQuantity} `;
-        }else {
-         alert('Cart is full , you cannot add or update it!');
-        }
+     updateCart();
    ">Add to Cart</button>
 
    <button onclick="
@@ -44,6 +39,15 @@
 
  <script >
     let cartQuantity = 0;
+
+    function updateCart(){
+        if(cartQuantity < 10){
+          cartQuantity ++;
+       document.getElementById('add').innerHTML = ` Cart Quantity : ${cartQuantity} `;
+        }else {
+         alert('Cart is full , you cannot add or update it!');
+        }
+    }
  </script>
 </body>
 </html>

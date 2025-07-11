@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Calculator</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+<div class="myCalculator">
+  <h1>Result : <span id="one"></span></h1>
+   <p>
+    <button onclick="
+    calculate('1');
+   ">1</button>
+   <button onclick="
+     calculate('2');
+   ">2</button>
+   <button onclick="
+     calculate('3');
+   ">3</button>
+   <button onclick="
+    calculate(' + ');
+   ">+</button>
+   </p>
+
+
+   <p>
+    <button onclick="
+       calculate('4');
+   ">4</button>
+   <button onclick="
+    calculate('5');
+   ">5</button>
+   <button onclick="
+      calculate('6');
+   ">6</button>
+   <button onclick="
+    calculate(' - ');
+   ">-</button>
+   </p>
+
+
+   <p>
+    <button onclick="
+     calculate('7');
+   ">7</button>
+   <button onclick="
+      calculate('8');
+   ">8</button>
+   <button onclick="
+      calculate('9');
+   ">9</button>
+   <button onclick="
+     calculate(' * ');
+   ">*</button>
+   </p>
+
+   <p>
+    <button onclick="
+      calculate('0');
+   ">0</button>
+   <button onclick="
+      calculate('.');
+   ">.</button>
+   <button onclick="
+    calculation = eval(calculation);
+    let result = calculation; 
+     console.log(result);
+     document.getElementById('one').innerHTML = calculation;
+     localStorage.setItem('calc',calculation);
+   ">=</button>
+   <button onclick="
+     calculate('/');
+   ">/</button>
+   </p>
+
+
+   <p>
+   <button class="clearMe" onclick="
+    calculation = '';
+     console.log(calculation);
+    document.getElementById('one').innerHTML = calculation;
+    localStorage.removeItem('calc');
+   " >Clear</button>
+   </p>
+
+
+</div>
+
+ <script>
+  let calculation = '';
+  calcultaion = localStorage.getItem('calc') || '';
+   document.getElementById('one').innerHTML = calculation;
+  function calculate(num){
+    calculation += `${num}`;
+    console.log(calculation);
+    document.getElementById('one').innerHTML = calculation;
+    localStorage.setItem('calc',calculation);
+    return calculation;
+  }
+ </script>
+</body>
+</html>

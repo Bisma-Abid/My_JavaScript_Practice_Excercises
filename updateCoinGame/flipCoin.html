@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Guess Please</title>
+ <style>
+  body {
+    background-color: #f4f7ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding-top: 100px;
+  }
+
+  button {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+  }
+
+  button::before {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    transform: skewX(-20deg);
+    transition: 0.5s;
+  }
+
+  button:hover::before {
+    left: 130%;
+  }
+
+  button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  button:active {
+    animation: bounce 0.3s;
+  }
+
+  @keyframes bounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+  }
+
+  #guessMe {
+    font-size: 24px;
+    margin-top: 40px;
+    color: #333;
+  }
+</style>
+</head>
+<body>
+ <button onclick="playGame('heads')">👤 Head</button>
+ <button onclick="playGame('tails')">🐶 Tail</button>
+
+ <p id="guessMe"></p>
+ <script src="data.js"></script>
+</body>
+</html>

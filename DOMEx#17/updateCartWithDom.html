@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Update Cart Using DOM</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #f0f4f8, #dfe9f3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 40px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    button {
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 120px;
+    }
+
+    button:hover {
+      background: linear-gradient(to right, #43e97b, #38f9d7);
+      transform: scale(1.05);
+    }
+
+    .show {
+      font-size: 1.5rem;
+      color: #333;
+      background-color: #f8f9fa;
+      padding: 15px;
+      border-radius: 10px;
+      border: 2px dashed #4facfe;
+    }
+
+    @media (max-width: 500px) {
+      .btn-group {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🛒 Update Cart Quantity</h1>
+
+    <div class="btn-group">
+      <button onclick="showCart()">Show Quantity</button>
+      <button onclick="addCart()">Add to Cart</button>
+      <button onclick="addCartBy2()">+2</button>
+      <button onclick="addCartBy3()">+3</button>
+      <button onclick="addCartBy4()">+4</button>
+      <button onclick="addCartBy5()">+5</button>
+      <button onclick="minusCartBy2()">-2</button>
+      <button onclick="minusCartBy3()">-3</button>
+      <button onclick="remove()">Reset</button>
+    </div>
+
+    <p class="show">Cart Quantity : 0</p>
+  </div>
+
+  <script>
+    let cart = Number(localStorage.getItem('cart')) || 0;
+
+    window.onload = function () {
+      showCart();
+    };
+
+    function showCart() {
+      document.querySelector('.show').innerHTML = `Cart Quantity : ${cart}`;
+      localStorage.setItem('cart', cart);
+    }
+
+    function addCart() {
+      cart++;
+      document.querySelector('.show').innerHTML = `Cart Quantity : ${cart}`;
+      localStorage.setItem('cart', cart);
+    }
+
+    function addCartBy2() {
+      cart += 2;
+      document.querySelector('.show').innerHTML = `Cart Quantity : ${cart}`;
+      localStorage.setItem('cart', cart);
+    }
+
+    function addCartBy3() {
+      cart += 3;
+      document.querySelector('.show').innerHTML = `Cart Quantity : ${cart}`;
+      localStorage.setItem('cart', cart);
+    }
+
+    function addCartBy4() {
+      cart += 4;
+      document.querySelector('.show').innerHTML = `Cart Quantity : ${cart}`;
+      localStorage.setItem('cart', cart);
+    }
+
+    function addCartBy5() {
+      cart += 5;
+      document.querySelector('.show').innerHTML = `Cart Quantity : ${cart}`;
+      localStorage.setItem('cart', cart);
+    }
+
+    function minusCartBy2() {
+      cart -= 2;
+      if (cart < 0) cart = 0;
+      document.querySelector('.show').innerHTML = `Cart Quantity : ${cart}`;
+      localStorage.setItem('cart', cart);
+    }
+
+    function minusCartBy3() {
+      cart -= 3;
+      if (cart < 0) cart = 0;
+      document.querySelector('.show').innerHTML = `Cart Quantity : ${cart}`;
+      localStorage.setItem('cart', cart);
+    }
+
+    function remove() {
+      cart = 0;
+      document.querySelector('.show').innerHTML = `Cart Quantity : ${cart}`;
+      localStorage.removeItem('cart');
+    }
+  </script>
+</body>
+</html>

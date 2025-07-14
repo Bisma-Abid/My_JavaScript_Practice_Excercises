@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DOM Exercises</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #00ff88;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      background-color: #1a1a1a;
+      border: 3px solid #00ff88;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 30px 20px;
+      box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: #00ffcc;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    input {
+      width: 80%;
+      max-width: 400px;
+      font-size: 1.2rem;
+      padding: 15px;
+      border: 2px solid #00ffaa;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      background-color: #fff;
+      color: black;
+    }
+
+    button {
+      background-color: #00ffaa;
+      color: black;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 20px;
+      margin: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #00ddaa;
+    }
+
+    p {
+      font-size: 1.3rem;
+      margin-top: 20px;
+      color: #ffd;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>DOM Exercises</h1>
+
+  <!-- Console Button Section -->
+  <div class="section">
+    <div class="section-title">Console Output</div>
+    <button>Show me in console through JavaScript</button>
+  </div>
+
+  <!-- Coin Toss Section -->
+  <div class="section">
+    <div class="section-title">Coin Toss</div>
+    <button onclick="forHead()">Heads</button>
+    <button onclick="forTail()">Tails</button>
+    <p class="result"></p>
+  </div>
+
+  <!-- Input Section -->
+  <div class="section">
+    <div class="section-title">Input Field</div>
+    <input type="text" placeholder="Enter text" class="input-class" onkeydown="handleKey(event)">
+    <br />
+    <button onclick="handleInput()">Submit</button>
+    <p class="show-value"></p>
+  </div>
+  // calculator
+  <div class="section">
+    <a href="domExcersise.html">Click Here</a>
+  </div>
+  <!-- onKeyUp Section -->
+  <div class="section">
+    <div class="section-title">Input Field</div>
+    <input type="text" placeholder="Enter text" class="input-class" onkeyup="handleUpKey(event)">
+    <br />
+
+    <p class="show-text"></p>
+  </div>
+
+   // update cart quantity
+  <div class="section">
+    <a href="updateCartWithDom.html">Click Here</a>
+  </div>
+  // update calculator with dom
+  <div class="section">
+    <a href="updateCalculatorWithDom.html">Click Here</a>
+  </div>
+  <script src="data.js"></script>
+</body>
+</html>

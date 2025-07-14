@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amazon Shipping Calculator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Roboto, Helvetica, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 40px;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    h1 {
+      margin-bottom: 25px;
+      font-size: 1.6rem;
+      color: #333333;
+      text-align: center;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 15px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      transition: border-color 0.2s ease-in-out;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #007bff;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .paragraph {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      color: #333;
+      text-align: center;
+      min-height: 1.5em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Amazon Shipping Calculator</h1>
+    <input 
+      type="text" 
+      placeholder="Enter cost" 
+      class="js-calculator" 
+      onkeydown="handleKey(event)" 
+    />
+    <button onclick="calculateCost()">Calculate</button>
+    <p class="paragraph"></p>
+  </div>
+
+  <script>
+    function handleKey(event) {
+      if (event.key === 'Enter') {
+        calculateCost();
+      }
+    }
+
+    function calculateCost() {
+      let inputText = document.querySelector('.js-calculator');
+      let cost = inputText.value;
+      let total = Math.round(Number(cost) * 100);
+      let costInCents = total;
+
+      if (total < 4000) {
+        costInCents += 1000;
+      }
+
+      const costInDollars = (costInCents / 100).toFixed(2);
+      document.querySelector('.paragraph').innerHTML = `$${costInDollars}`;
+    }
+  </script>
+
+</body>
+</html>

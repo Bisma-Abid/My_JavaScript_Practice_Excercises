@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pretty Calculator</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffd6ec, #ffe6cc);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .myCalculator {
+      background-color: #fff0f5;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+      width: 270px;
+    }
+
+    h1 {
+      font-size: 1rem;
+      color: #ff6f91;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    #one {
+      font-size: 1.4rem;
+      color: #ff914d;
+      background-color: #fff7fb;
+      padding: 8px 12px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      text-align: right;
+      height: 40px;
+      overflow-x: hidden;
+      white-space: nowrap;
+      word-break: break-all;
+    }
+
+    .button-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      justify-items: center;
+    }
+
+    button {
+      width: 50px;
+      height: 50px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      background-color: #ffc2d1;
+      color: #333;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #ffb347;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .clearMe {
+      background-color: #ff6f91;
+      color: white;
+      width: 100%;
+      margin-top: 12px;
+      height: 45px;
+    }
+
+    .clearMe:hover {
+      background-color: #e63946;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="myCalculator">
+    <h1>Result:</h1>
+    <div id="one"></div>
+
+    <div class="button-grid">
+      <button onclick="calculate('1')">1</button>
+      <button onclick="calculate('2')">2</button>
+      <button onclick="calculate('3')">3</button>
+      <button onclick="calculate(' + ')">+</button>
+
+      <button onclick="calculate('4')">4</button>
+      <button onclick="calculate('5')">5</button>
+      <button onclick="calculate('6')">6</button>
+      <button onclick="calculate(' - ')">-</button>
+
+      <button onclick="calculate('7')">7</button>
+      <button onclick="calculate('8')">8</button>
+      <button onclick="calculate('9')">9</button>
+      <button onclick="calculate(' * ')">*</button>
+
+      <button onclick="calculate('0')">0</button>
+      <button onclick="calculate('.')">.</button>
+      <button onclick="
+        calculation = eval(calculation);
+        document.getElementById('one').innerHTML = calculation;
+        localStorage.setItem('calc', calculation);
+      ">=</button>
+      <button onclick="calculate(' / ')">/</button>
+    </div>
+
+    <button class="clearMe" onclick="
+      calculation = '';
+      document.getElementById('one').innerHTML = calculation;
+      localStorage.removeItem('calc');
+    ">Clear</button>
+  </div>
+
+  <script>
+    let calculation = '';
+    calculation = localStorage.getItem('calc') || '';
+     window.onload = function () {
+      showCart();
+    };
+
+
+       function showCart(){
+       localStorage.setItem('calc', calculation);
+      document.getElementById('one').innerHTML = calculation;
+    }
+    document.getElementById('one').innerHTML = calculation;
+
+    function calculate(num) {
+      calculation += `${num}`;
+      document.getElementById('one').innerHTML = calculation;
+      localStorage.setItem('calc', calculation);
+    }
+  </script>
+</body>
+</html>

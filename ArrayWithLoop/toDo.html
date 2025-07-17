@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+<body>
+<div>
+ <h1>To Do List 1</h1>
+   <input placeholder="Enter Text" class="js-input" />
+   <button onclick="handleToDo()">Add</button>
+</div>
+<div>
+ <h1>To Do List 2</h1>
+   <input placeholder="Enter Text" class="js-show-input" />
+   <button onclick="handleToDoList()">Add</button>
+   <div class="my-list"></div>
+</div>
+
+<script>
+ 
+  function handleToDo(){
+      let todoList = [];
+    let inputElement = document.querySelector('.js-input');
+    let text = inputElement.value;
+    todoList.push(text)
+    console.log(todoList);
+    inputElement.value = '';
+    localStorage.setItem('saved',todoList);
+  }
+  result = '';
+
+  function handleToDoList(){
+    let toDoList = [];
+    let list = document.querySelector('.js-show-input');
+    let elementValue = list.value; 
+    list.value = '';
+    let html = `<p>${elementValue}<p>`;
+    document.querySelector('.my-list').innerHTML += html;
+    
+    localStorage.setItem('save',toDoList);
+  }
+  
+</script>
+</body>
+</html>

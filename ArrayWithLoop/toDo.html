@@ -104,61 +104,91 @@
     <div class="todo-list get-value"></div>
   </div>
 
-  <script>
-    function handleToDo() {
-      let todoList = [];
-      let inputElement = document.querySelector('.js-input');
-      let text = inputElement.value;
-      todoList.push(text);
-      console.log(todoList);
-      inputElement.value = '';
-      localStorage.setItem('saved', todoList);
+ <script>
+  // ------------------ TO DO LIST 1 ------------------
+
+  function handleToDo() {
+    let inputElement = document.querySelector('.js-input');
+    let text = inputElement.value.trim();
+    if (!text) return;
+
+    let todoList = JSON.parse(localStorage.getItem('saved1')) || [];
+    todoList.push(text);
+    localStorage.setItem('saved1', JSON.stringify(todoList));
+    inputElement.value = '';
+    console.log(todoList);
+  }
+
+  // ------------------ TO DO LIST 2 ------------------
+
+  function handleToDoList() {
+    let list = document.querySelector('.js-show-input');
+    let elementValue = list.value.trim();
+    if (!elementValue) return;
+
+    let toDoList = JSON.parse(localStorage.getItem('saved2')) || [];
+    toDoList.push(elementValue);
+    localStorage.setItem('saved2', JSON.stringify(toDoList));
+    list.value = '';
+
+    renderList2();
+  }
+
+  function renderList2() {
+    let toDoList = JSON.parse(localStorage.getItem('saved2')) || [];
+    let html = '';
+    for (let item of toDoList) {
+      html += `<p>${item}</p>`;
     }
+    document.querySelector('.my-list').innerHTML = html;
+  }
 
-    function handleToDoList() {
-      let toDoList = [];
-      let list = document.querySelector('.js-show-input');
-      let elementValue = list.value;
-      list.value = '';
-      let html = `<p>${elementValue}</p>`;
-      document.querySelector('.my-list').innerHTML += html;
+  // ------------------ TO DO LIST 3 ------------------
 
-      localStorage.setItem('save', toDoList);
-    }
+  let todos = JSON.parse(localStorage.getItem('saved3')) || [];
 
-    let todos = [];
+  function addTodo() {
+    let elementValue = document.querySelector('.show-name');
+    let dueDate = document.querySelector('.show-date');
+    let name = elementValue.value.trim();
+    let date = dueDate.value;
 
-    function addTodo() {
-      let elementValue = document.querySelector('.show-name');
-      let dueDate = document.querySelector('.show-date');
-      let name = elementValue.value;
-      let date = dueDate.value;
-      elementValue.value = '';
-      dueDate.value = '';
+    if (!name || !date) return;
 
-      todos.push({
-        name,
-        date
-      });
+    todos.push({ name, date });
+    localStorage.setItem('saved3', JSON.stringify(todos));
 
-      renderTodos();
-    }
+    elementValue.value = '';
+    dueDate.value = '';
 
-    function renderTodos() {
-      let html = '';
-      for (let i = 0; i < todos.length; i++) {
-        html += `<p>${todos[i].name} - ${todos[i].date} 
+    renderTodos();
+  }
+
+  function renderTodos() {
+    let html = '';
+    for (let i = 0; i < todos.length; i++) {
+      html += `<p>${todos[i].name} - ${todos[i].date} 
                  <button onclick="handleDelete(${i})">Delete</button></p>`;
-      }
-
-      document.querySelector('.get-value').innerHTML = html;
     }
 
-    function handleDelete(i) {
-      todos.splice(i, 1);
-      renderTodos();
-    }
-  </script>
+    document.querySelector('.get-value').innerHTML = html;
+  }
+
+  function handleDelete(i) {
+    todos.splice(i, 1);
+    localStorage.setItem('saved3', JSON.stringify(todos));
+    renderTodos();
+  }
+
+  // ------------------ PAGE LOAD: RENDER SAVED ------------------
+
+  window.onload = function () {
+    renderList2();   // To Do List 2
+    renderTodos();   // To Do List 3
+    // Note: To Do List 1 doesn't display saved items visually
+  };
+</script>
+
 
 </body>
 </html>

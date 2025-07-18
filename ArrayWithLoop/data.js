@@ -235,3 +235,24 @@ function addArray(array1,array2){
    }
 
    console.log(countWords(["banana","apple","apple","graps","apple","banana","graps","graps","orange","mango","apple","banana","mango"]));
+
+ // exQ 11 (Double the numbers in array,using loops in functions)
+   
+   function doubleNumbers(nums){
+     numsDouble = [];
+    
+     for(let i = 0; i < nums.length; i++){
+       let num = nums[i];
+        if(num === 0){
+       // break;
+        return numsDouble;
+     }
+       num = num * 2;
+       numsDouble.push(num);
+     }
+       return numsDouble;
+     }
+
+     console.log(doubleNumbers([2,4,6,7]));
+     console.log(doubleNumbers([2,4,6,0,4,6]));
+   

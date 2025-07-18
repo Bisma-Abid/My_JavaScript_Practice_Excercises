@@ -1,47 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Beautiful To Do Lists</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f2f6fc;
+      margin: 0;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      color: #3a3a3a;
+    }
+
+    .todo-section {
+      background-color: white;
+      padding: 20px;
+      margin: 20px 0;
+      width: 100%;
+      max-width: 500px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    input[type="text"],
+    input[type="date"] {
+      padding: 10px;
+      width: calc(100% - 24px);
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      margin-top: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .todo-list p {
+      background: #eaf0fa;
+      padding: 10px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .todo-list p button {
+      background-color: #dc3545;
+      padding: 6px 12px;
+    }
+
+    .todo-list p button:hover {
+      background-color: #a71d2a;
+    }
+  </style>
 </head>
 <body>
-<div>
- <h1>To Do List 1</h1>
-   <input placeholder="Enter Text" class="js-input" />
-   <button onclick="handleToDo()">Add</button>
-</div>
-<div>
- <h1>To Do List 2</h1>
-   <input placeholder="Enter Text" class="js-show-input" />
-   <button onclick="handleToDoList()">Add</button>
-   <div class="my-list"></div>
-</div>
 
-<script>
- 
-  function handleToDo(){
+  <div class="todo-section">
+    <h1>To Do List 1</h1>
+    <input placeholder="Enter Text" class="js-input" type="text"/>
+    <br>
+    <button onclick="handleToDo()">Add</button>
+  </div>
+
+  <div class="todo-section">
+    <h1>To Do List 2</h1>
+    <input placeholder="Enter Text" class="js-show-input" type="text"/>
+    <br>
+    <button onclick="handleToDoList()">Add</button>
+    <div class="todo-list my-list"></div>
+  </div>
+
+  <div class="todo-section">
+    <h1>To Do List 3</h1>
+    <input placeholder="Enter Name..." class="show-name" type="text"/>
+    <input type="date" class="show-date" />
+    <br>
+    <button onclick="addTodo()">Add</button>
+    <div class="todo-list get-value"></div>
+  </div>
+
+  <script>
+    function handleToDo() {
       let todoList = [];
-    let inputElement = document.querySelector('.js-input');
-    let text = inputElement.value;
-    todoList.push(text)
-    console.log(todoList);
-    inputElement.value = '';
-    localStorage.setItem('saved',todoList);
-  }
-  result = '';
+      let inputElement = document.querySelector('.js-input');
+      let text = inputElement.value;
+      todoList.push(text);
+      console.log(todoList);
+      inputElement.value = '';
+      localStorage.setItem('saved', todoList);
+    }
 
-  function handleToDoList(){
-    let toDoList = [];
-    let list = document.querySelector('.js-show-input');
-    let elementValue = list.value; 
-    list.value = '';
-    let html = `<p>${elementValue}<p>`;
-    document.querySelector('.my-list').innerHTML += html;
-    
-    localStorage.setItem('save',toDoList);
-  }
-  
-</script>
+    function handleToDoList() {
+      let toDoList = [];
+      let list = document.querySelector('.js-show-input');
+      let elementValue = list.value;
+      list.value = '';
+      let html = `<p>${elementValue}</p>`;
+      document.querySelector('.my-list').innerHTML += html;
+
+      localStorage.setItem('save', toDoList);
+    }
+
+    let todos = [];
+
+    function addTodo() {
+      let elementValue = document.querySelector('.show-name');
+      let dueDate = document.querySelector('.show-date');
+      let name = elementValue.value;
+      let date = dueDate.value;
+      elementValue.value = '';
+      dueDate.value = '';
+
+      todos.push({
+        name,
+        date
+      });
+
+      renderTodos();
+    }
+
+    function renderTodos() {
+      let html = '';
+      for (let i = 0; i < todos.length; i++) {
+        html += `<p>${todos[i].name} - ${todos[i].date} 
+                 <button onclick="handleDelete(${i})">Delete</button></p>`;
+      }
+
+      document.querySelector('.get-value').innerHTML = html;
+    }
+
+    function handleDelete(i) {
+      todos.splice(i, 1);
+      renderTodos();
+    }
+  </script>
+
 </body>
 </html>

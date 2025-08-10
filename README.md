@@ -11,3 +11,5 @@ Kebab Case = my-name  <br>
 Snake Case = my_name  <br>
 
 My Desi Dasterkhawan project : https://splendid-dango-d5ce14.netlify.app
+
+Here is my Final JavaScript Project - Amazon Clone : https://funny-froyo-548766.netlify.app/
